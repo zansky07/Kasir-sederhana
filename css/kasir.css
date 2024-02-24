@@ -9,7 +9,7 @@ body{
   "bayar bayar" 
   ;
   grid-template-rows: auto;
-  grid-template-columns:550pt auto;
+  grid-template-columns:450pt auto;
   font-family: "Poppins", sans-serif;
 }
 
@@ -54,7 +54,7 @@ nav ul li a:hover {
 
 
 .header, .pembayaran, .cart-section {
-    width: 80%;
+    width: 60%;
     margin: 50px auto;
     padding: 20px;
     border-radius: 10px;
@@ -71,7 +71,7 @@ nav ul li a:hover {
 
 .pembayaran{
   grid-area: bayar;
-  margin-left: 155px;
+  margin-left: 85px;
 }
   
   table {
@@ -135,6 +135,10 @@ button.update-button:hover{
     color: white;
   }
 
+  button:hover{
+    background-color: rgb(16, 66, 214);  
+  }
+
   table#cart-items  {
     border: 3px solid black;
     border-collapse: collapse;
@@ -181,10 +185,6 @@ button.update-button:hover{
     font-style: normal;
   }
   
-
-  
-
-
     /* Menyesuaikan lebar input SweetAlert */
     .swal2-input[type="text"]{
         width: 85%;
