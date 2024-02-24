@@ -1,0 +1,193 @@
+/* Tambahkan gaya CSS Anda di sini */
+body{
+  margin: 0;
+  background-color: #f0f5f5;
+  display: grid;
+  grid-template-areas: 
+  "header header"
+  "input cart"
+  "bayar bayar" 
+  ;
+  grid-template-rows: auto;
+  grid-template-columns:550pt auto;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center; /* Menyusun item secara vertikal tengah */
+  justify-content: space-between; /* Meletakkan item di antara header secara horizontal */
+  padding: 20px 40px; /* Menambahkan ruang di sekitar logo dan menu */
+  box-shadow: 0 4px 2px 0 rgba(36, 7, 167, 0.2);
+  background-color: white;
+  grid-area: header;
+
+}
+.logo{
+  display: flex;
+}
+
+.logo img {
+  width: 100px; /* ukuran logo, sesuaikan dengan kebutuhan */
+  height: auto; /* agar tinggi logo menyesuaikan proporsi */
+  margin-right: 50px;
+}
+
+
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0; /* Menghilangkan margin pada elemen terakhir */
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #ffd700; /* Warna kuning saat hover */
+}
+
+
+.header, .pembayaran, .cart-section {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+.header{
+  grid-area: input;
+}
+
+.cart-section{
+  grid-area: cart;
+}
+
+.pembayaran{
+  grid-area: bayar;
+  margin-left: 155px;
+}
+  
+  table {
+    width: 100%;
+  }
+  
+  th {
+    text-align: left;
+    padding: 8px;
+  }
+
+  table#cart-items td{
+    padding-left: 10px;
+  }
+  
+  table#cart-items th{
+    text-align: center;
+  }
+ 
+/* Mengatur tata letak tombol "Update" dan "Delete" di dalam sel tabel */
+.cell-actions {
+  padding: 5px; /* Menggunakan fleksbox untuk mengatur tata letak */
+  display: flex;
+}
+/* Menyesuaikan gaya tombol "Update" dan "Delete" */
+.cell-actions button {
+  margin-right: 10px;
+  
+}
+
+button.delete-button{
+  background-color: red;
+  
+}
+
+button.delete-button:hover{
+  background-color: rgb(172, 41, 41);  
+}
+
+button.update-button:hover{
+  background-color: rgb(16, 66, 214);  
+}
+  
+  input[type="text"],
+  input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4d79ff;
+    color: white;
+  }
+
+  table#cart-items  {
+    border: 3px solid black;
+    border-collapse: collapse;
+    width: 70%;
+    
+  }
+
+  .slide-in {
+    animation: slideIn 1.5s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+    
+  .poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  } 
+  
+  .poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+
+  
+
+
+    /* Menyesuaikan lebar input SweetAlert */
+    .swal2-input[type="text"]{
+        width: 85%;
+        box-sizing: border-box; /* Penting untuk menghitung lebar dengan tepat */
+    }
+

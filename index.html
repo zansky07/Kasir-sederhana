@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/kasir.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <title>Kasir Sederhana</title>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://github.com/alifichwnt/kasirSederhana/blob/main/download.png?raw=true" alt="Logo ">
+      <h1 class="poppins-bold">Kasir "Sederhana"</h1>
+    </div>
+  </header>
+  
+  <div class="header" style="background: white; width: fit-content; padding: 50px;">
+    <h2 class="Judul poppins-semibold">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check-fill" viewBox="0 0 16 16" style="margin-right: 10px;">
+        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0m-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
+      </svg>
+      Input Item</h2>
+    <hr>
+     
+      <table class="poppins-regular">
+        <tr>
+          <th>Nama Barang</th>
+          <th><input type="text" id="nama-barang" placeholder="Nama Barang"></th>
+        </tr>
+        <tr>
+          <th>Harga</th>
+          <th><input type="number" id="harga-barang" onchange="hitungTotal()"></th>
+        </tr>
+        <tr>
+          <th>Jumlah Beli</th>
+          <th><input type="number" id="jumlah-beli" value="0" onchange="hitungTotal()"></th>
+        </tr>
+        <tr>
+          <th>Jumlah Total</th>
+          <th><input type="text" id="total" disabled></th>
+        </tr>
+      </table>
+      <button class="poppins-semibold" type="button" onclick="addItem()" style="margin-top: 20px; margin-left: 175px;">Tambah Item</button>
+  </div>
+
+  <div class="pembayaran" style="background: white; width: 320px; padding: 50px;">
+    <h2 class="Judul poppins-semibold">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16" style="margin-right: 10px;">
+        <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+        <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2z"/>
+      </svg>
+      Payment</h2>
+    <hr>
+    <table class="poppins-regular">
+      <tr>
+        <th>Pembayaran</th>
+        <th><input type="number" id="bayar" onchange="hitungKembalian()"></th>
+      </tr>
+      <tr>
+        <th>Kembalian</th>
+        <th><input type="text" id="kembalian" disabled></th>
+      </tr>
+    </table>
+    <button class="poppins-semibold" id="bayar-woi" type="button" style="margin-top: 20px; margin-left: 220px;" >Bayar</button>
+</div>
+
+  <div class="cart-section poppins-regular" style="background: white; width: 500px; padding: 50px;">
+    <h2>
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16" style="margin-right: 10px;">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+      </svg>
+      Cart
+
+    </h2>
+    <hr>
+    <table id="cart-items" border="3"  >
+        <tr>
+          <th>Nama Barang</th>
+          <th>Jumlah</th>
+          <th>Harga</th>
+          <th>Subtotal</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td colspan="5" style="text-align: center;">Keranjang Kosong</td>
+        </tr>
+    </table>
+    <h3>Total: Rp<span id="total1" > 0</span></h3>
+    <br>
+        <!-- Teks yang bergerak untuk menarik perhatian -->
+        <marquee class="poppins-bold" scrolldelay="100" direction="left" style="background-color: #f0f5f5;"> ~ Melayani Sepenuh Hati ~
+        </marquee>
+  </div>
+
+
+  <script src="js/kasir.js"></script>
+
+
+</body>
+</html>
