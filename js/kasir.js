@@ -50,9 +50,10 @@ async function updateItem(index) {
       total += (( newQuantity - cart[index].quantity ) *cart[index].itemPrice)
       cart[index].quantity = parseInt(newQuantity);
       cart[index].subtotal = cart[index].quantity * cart[index].itemPrice;
-      displayCart(); // Memperbarui tampilan keranjang setelah pembaruan
-      Swal.fire("Success", "Item quantity updated!", "success");
     }
+    displayCart(); // Memperbarui tampilan keranjang setelah pembaruan
+    clearInputs();
+    Swal.fire("Success", "Item quantity updated!", "success");
   }
 }
 
@@ -73,7 +74,7 @@ function deleteItem(index) {
       total -= cart[index].subtotal
       cart.splice(index, 1); // Menghapus item dari array cart berdasarkan index
       displayCart(); // Memperbarui tampilan keranjang setelah penghapusan
-      
+      clearInputs();
       Swal.fire({
         title: "Deleted!",
         text: "Your file has been deleted.",
