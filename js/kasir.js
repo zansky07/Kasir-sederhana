@@ -36,11 +36,13 @@ async function updateItem(index) {
       inputValue: cart[index].quantity,
       showCancelButton: true,
       inputValidator: (value) => {
+        // Validasi Input
           if (!value || isNaN(value) || parseInt(value) <= 0) {
               return "Please enter a valid quantity!";
           }
       }
   });
+  // Kondisi jika valid
   if (newQuantity) {
     if(newQuantity < cart[index].quantity){
       total -= ((cart[index].quantity - newQuantity) *cart[index].itemPrice)
@@ -61,13 +63,13 @@ async function updateItem(index) {
 function deleteItem(index) {
   
   Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
+    title: "Apakah kamu yakin?",
+    text: "Kamu tidak bisa memulihkan lagi!",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
+    confirmButtonText: "Ya, Hapus!"
   }).then((result) => {
     if (result.isConfirmed) {
       
@@ -76,8 +78,8 @@ function deleteItem(index) {
       displayCart(); // Memperbarui tampilan keranjang setelah penghapusan
       clearInputs();
       Swal.fire({
-        title: "Deleted!",
-        text: "Your file has been deleted.",
+        title: "Terhapus!",
+        text: "Item Belanja Sudah Terhapus.",
         icon: "success"
       });
     }
@@ -128,8 +130,6 @@ cart.forEach((item, index) => {
     cellActions.appendChild(deleteButton);
    
 });
-
-
 
 //menampilkan total belanja
 document.getElementById('total1').textContent = total.toFixed(2);
